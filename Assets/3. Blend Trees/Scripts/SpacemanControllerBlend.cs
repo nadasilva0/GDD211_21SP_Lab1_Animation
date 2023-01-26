@@ -36,6 +36,7 @@ public class SpacemanControllerBlend : MonoBehaviour
 
 		// Animation
 		aniSpeed = Mathf.Lerp(0, aniSpeedMax, Mathf.Abs(walkSpeed) / walkSpeedMax); // Remap walkSpeed onto aniSpeed.
+
 		animator.SetFloat("MoveSpeed", aniSpeed);
 
 		// Rotate

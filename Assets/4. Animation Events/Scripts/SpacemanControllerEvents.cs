@@ -50,6 +50,11 @@ public class SpacemanControllerEvents : MonoBehaviour
 		StartCoroutine(LightFlickerCoroutine());
 	}
 
+	private void Test()
+	{
+		Debug.Log("Animation Event");
+	}
+
 	private IEnumerator LightFlickerCoroutine()
 	{
 		float pointlightStart = pointLight.intensity;

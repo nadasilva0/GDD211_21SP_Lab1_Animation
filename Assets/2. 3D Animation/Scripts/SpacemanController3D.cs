@@ -5,27 +5,16 @@ using UnityEngine;
 public class SpacemanController3D : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-	[SerializeField] private float walkSpeed;
-
-	private float facing = 1;
 
 	private void Update()
 	{
-		float input = (Input.GetAxisRaw("Horizontal"));
-
-		facing = input;
-
-		if (facing < 0)
+		if ( Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0)
 		{
-			transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0f, 270f, 0f), Time.deltaTime * 4f);
+			animator.SetFloat("MoveSpeed", 1);
 		}
-		else if(facing > 0)
+		else
 		{
-			transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0f, 90f, 0f), Time.deltaTime * 4f);
+			animator.SetFloat("MoveSpeed", 0);
 		}
-
-		transform.position += new Vector3(input * walkSpeed * Time.deltaTime, 0f);
-
-		animator.SetFloat("MoveSpeed", Mathf.Abs(input));
 	}
 }
